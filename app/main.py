@@ -52,7 +52,8 @@ def read_groups_information() -> list[Group]:
             while True:
                 try:
                     group = pickle.load(file)
-                    groups.append(group)
+                    if group.specialty.name not in groups:
+                        groups.append(group.specialty.name)
                 except EOFError:
                     break
     except FileNotFoundError:
