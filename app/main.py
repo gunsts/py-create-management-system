@@ -28,6 +28,8 @@ class Group:
 
 
 def write_groups_information(groups: list[Group]) -> int:
+    if not groups:
+        return 0
     max_students = max(len(group.students) for group in groups)
     with open("groups.pickle", "wb") as file:
         for group in groups:
